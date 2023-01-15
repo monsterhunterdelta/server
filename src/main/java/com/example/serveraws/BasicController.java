@@ -1,6 +1,7 @@
 package com.example.serveraws;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +26,7 @@ public class BasicController {
 
     @GetMapping("/highscore")
     public ResponseEntity<Highscore> get(@RequestParam(value = "id") int id) {
-        // get User by ID
+        // get highscore by ID
         Optional<Highscore> userInScoresDB = scoresRepository.findById(id);
         if (userInScoresDB.isPresent()) {
             return new ResponseEntity<Highscore>(userInScoresDB.get(), HttpStatus.OK);
@@ -35,7 +36,8 @@ public class BasicController {
 
     @GetMapping("/highscorelist")
     public ResponseEntity<Iterable<Highscore>> getALL() {
-        Iterable<Highscore> allUsersAndScores = scoresRepository.findAll();
+        // get and sort all allUsersAndScores by highScore
+        Iterable<Highscore> allUsersAndScores = scoresRepository.findAll(Sort.by(Sort.Direction.DESC, "highScore"));
         return new ResponseEntity<Iterable<Highscore>>(allUsersAndScores, HttpStatus.OK);
     }
 
@@ -43,7 +45,7 @@ public class BasicController {
     @PostMapping("/highscore")
     public ResponseEntity<Highscore> create(@RequestParam String name
             , @RequestParam Integer score) {
-        //save user in DB
+        // highscore user in DB
         Highscore newHighscore = new Highscore();
         newHighscore.setUsername(name);
         newHighscore.setHighScore(score);

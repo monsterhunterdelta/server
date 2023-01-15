@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface ScoresRepository extends CrudRepository<Highscore, Integer> {
 
     Iterable<Highscore> findAll(Sort highScore);
+
+
 }

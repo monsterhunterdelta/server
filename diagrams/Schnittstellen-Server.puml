@@ -1,0 +1,35 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class BasicController {
+  + BasicController(): 
+  + index(): String
+  + delete(int): ResponseEntity
+  + create(String, Integer): ResponseEntity<Highscore>
+  + get(int): ResponseEntity<Highscore>
+   ALL: ResponseEntity<Iterable<Highscore>>
+   injectedBean: ScoresRepository
+}
+class Highscore {
+  + Highscore(): 
+  - id: Integer
+  - highScore: Integer
+  - username: String
+   id: Integer
+   highScore: Integer
+   username: String
+}
+interface ScoresRepository << interface >> {
+  + findAll(Sort): Iterable<Highscore>
+}
+class ServerAwsApplication {
+  + ServerAwsApplication(): 
+  + main(String[]): void
+}
+
+BasicController       -[#595959,dashed]->  Highscore            : "«create»"
+BasicController      "1" *-[#595959,plain]-> "scoresRepository\n1" ScoresRepository     
+@enduml

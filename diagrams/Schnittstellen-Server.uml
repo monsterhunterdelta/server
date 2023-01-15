@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="-91.5" y="-14.0">com.example.serveraws.ServerAwsApplication</node>
+    <node x="-105.5" y="110.5">com.example.serveraws.Highscore</node>
+    <node x="89.0" y="177.5">com.example.serveraws.ScoresRepository</node>
+    <node x="-106.0" y="390.5">com.example.serveraws.BasicController</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.example.serveraws.BasicController" target="com.example.serveraws.Highscore" relationship="CREATE">
+      <point x="-100.0" y="-93.5" />
+      <point x="0.0" y="93.5" />
+    </edge>
+    <edge source="com.example.serveraws.BasicController" target="com.example.serveraws.ScoresRepository" relationship="TO_ONE">
+      <point x="140.0" y="-93.5" />
+      <point x="0.0" y="26.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="1.4019607843137254" showDependencies="true" x="127.5" y="292.0" />
+  <SelectedNodes>
+    <node>com.example.serveraws.BasicController</node>
+    <node>com.example.serveraws.Highscore</node>
+    <node>com.example.serveraws.ServerAwsApplication</node>
+    <node>com.example.serveraws.ScoresRepository</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
